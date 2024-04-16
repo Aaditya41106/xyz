@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #b784db;
+    margin: 0;
+    padding: 0;
+}
+
+.envelope {
+    position: relative;
+    cursor: pointer;
+    margin: 20px;
+}
+
+.back {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background: #6247aa;
+}
+
+.front {
+    display: none;
+}
+
+.top {
+    display: none;
+}
+
+.letter {
+    position: relative;
+    background: white;
+    margin-top: -20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.text {
+    font-size: 14px;
+    color: black;
+}
+
+.heart {
+    display: none;
+}
+
+@media (min-width: 600px) {
+    .envelope {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .front,
+    .top {
+        display: block;
+        position: absolute;
+        width: 50%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: #815ac0;
+    }
+
+    .top {
+        transform-origin: top;
+        transition: transform 0.4s;
+    }
+
+    .envelope:hover .top {
+        transform: rotateX(180deg);
+    }
+
+    .letter {
+        width: 80%;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .heart {
+        display: block;
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        width: 50px;
+        height: 50px;
+        background-color: red;
+        transform: rotate(-45deg);
+        box-shadow: -5px 10px 90px red;
+        animation: heartbeat 1s infinite;
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.1) rotate(-45deg);
+    }
+    100% {
+        transform: scale(1) rotate(-45deg);
+    }
+}
